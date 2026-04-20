@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Plus, Minus, Smartphone, Cpu, Bell, Star, RefreshCw, Shield, Layers } from "lucide-react";
+import { RecentProjects } from "../../components/RecentProjects";
 
 const faqs = [
   { q: "Do you build native iOS/Android or cross-platform apps?", a: "We primarily build with React Native (Expo) which delivers near-native performance on both iOS and Android from a single codebase — cutting development time and cost significantly. For apps requiring deep native capabilities (complex AR, Bluetooth, specialized hardware), we build fully native Swift or Kotlin apps." },
@@ -113,6 +114,8 @@ export default function AppDevelopment() {
             <Accordion items={faqs} />
           </div>
         </div>
+
+        <RecentProjects service="app-development" accent="#10b981" />
 
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">

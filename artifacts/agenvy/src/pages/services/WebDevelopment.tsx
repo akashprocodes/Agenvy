@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Plus, Minus, Code2, Gauge, Shield, RefreshCw, Layers, Globe, Smartphone } from "lucide-react";
+import { RecentProjects } from "../../components/RecentProjects";
 
 const faqs = [
   { q: "What technologies do you build with?", a: "Our core stack is React / Next.js for the frontend, Node.js / Express or Python FastAPI for the backend, PostgreSQL or MongoDB for databases, and AWS / Vercel / Railway for infrastructure. We select the stack that best fits your project requirements, not the trendiest option." },
@@ -113,6 +114,8 @@ export default function WebDevelopment() {
             <Accordion items={faqs} />
           </div>
         </div>
+
+        <RecentProjects service="web-development" accent="#6366f1" />
 
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">

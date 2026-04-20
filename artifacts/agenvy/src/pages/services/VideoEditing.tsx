@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Plus, Minus, Film, Scissors, Music, Layers, Zap, MonitorPlay, Sparkles } from "lucide-react";
+import { RecentProjects } from "../../components/RecentProjects";
 
 const faqs = [
   { q: "What types of videos do you edit?", a: "We edit everything — brand videos, product demos, social media reels, YouTube content, ad creative, explainer videos, testimonial videos, event recaps, and cinematic brand stories. If it has frames, we can craft it." },
@@ -113,6 +114,8 @@ export default function VideoEditing() {
             <Accordion items={faqs} />
           </div>
         </div>
+
+        <RecentProjects service="video-editing" accent="#8b5cf6" />
 
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">

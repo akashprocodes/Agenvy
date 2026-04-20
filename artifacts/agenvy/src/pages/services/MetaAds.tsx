@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Plus, Minus, Target, DollarSign, Eye, MousePointer, RefreshCw, PieChart, Layers } from "lucide-react";
+import { RecentProjects } from "../../components/RecentProjects";
 
 const faqs = [
   { q: "What budget do I need to start Meta Ads?", a: "We typically recommend a minimum ad spend of $1,500/month to have meaningful data for optimization. With smaller budgets, there isn't enough data to make informed decisions. Our management fee is separate from your ad spend." },
@@ -113,6 +114,8 @@ export default function MetaAds() {
             <Accordion items={faqs} />
           </div>
         </div>
+
+        <RecentProjects service="meta-ads" accent="#f97316" />
 
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">

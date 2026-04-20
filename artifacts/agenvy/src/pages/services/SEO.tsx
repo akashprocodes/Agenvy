@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Plus, Minus, Search, BarChart2, Link2, FileText, Globe, TrendingUp, CheckCircle } from "lucide-react";
+import { RecentProjects } from "../../components/RecentProjects";
 
 const faqs = [
   { q: "How long does SEO take to show results?", a: "SEO is a long-term investment. You'll typically see technical improvements reflected within 4-6 weeks, initial ranking gains in 3-4 months, and significant organic traffic growth in 6-12 months. We provide monthly reports so you always know where you stand." },
@@ -113,6 +114,8 @@ export default function SEO() {
             <Accordion items={faqs} />
           </div>
         </div>
+
+        <RecentProjects service="seo" accent="#3b82f6" />
 
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">

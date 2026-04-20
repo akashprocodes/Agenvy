@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "wouter";
+import { RecentProjects } from "../../components/RecentProjects";
 import { ArrowLeft, Plus, Minus, TrendingUp, Users, Heart, Zap, MessageCircle, BarChart2, Target } from "lucide-react";
 
 const faqs = [
@@ -151,6 +152,8 @@ export default function SocialMedia() {
             <Accordion items={faqs} />
           </div>
         </div>
+
+        <RecentProjects service="social-media" accent="#ec4899" />
 
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">

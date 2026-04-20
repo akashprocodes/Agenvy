@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Plus, Minus, Bot, Cpu, GitBranch, Webhook, BarChart2, Lock, Layers } from "lucide-react";
+import { RecentProjects } from "../../components/RecentProjects";
 
 const faqs = [
   { q: "What kinds of workflows can you automate?", a: "Nearly anything repetitive — lead qualification, CRM data entry, invoice processing, onboarding sequences, inventory alerts, social publishing, customer support routing, reporting, and internal approval workflows. If a human does it manually on a computer, we can probably automate it." },
@@ -113,6 +114,8 @@ export default function AIAutomation() {
             <Accordion items={faqs} />
           </div>
         </div>
+
+        <RecentProjects service="ai-automation" accent="#06b6d4" />
 
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">
