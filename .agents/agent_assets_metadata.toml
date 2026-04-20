@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "x4yHsCzitgVofgJEqTUxn"
+uri = "file://artifacts/agenvy/public/portfolio-1.png"
+type = "image"
+title = "Abstract tech digital art 1"
+
+[[generated]]
+id = "DvfbFARW51UwTZv84wXDb"
+uri = "file://artifacts/agenvy/public/portfolio-2.png"
+type = "image"
+title = "Abstract tech digital art 2"
+
+[[generated]]
+id = "KsXLRr_bAjKmCr4C17bJz"
+uri = "file://artifacts/agenvy/public/portfolio-3.png"
+type = "image"
+title = "Abstract tech digital art 3"
+
+[[generated]]
+id = "QC1JylpJM04J-E-ngpqJt"
+uri = "file://artifacts/agenvy/public/portfolio-4.png"
+type = "image"
+title = "Abstract tech digital art 4"
+
+[[generated]]
+id = "EAcagg6HSaLRR8xurZQHD"
+uri = "file://artifacts/agenvy/public/portfolio-5.png"
+type = "image"
+title = "Abstract tech digital art 5"
+
+[[generated]]
+id = "Zf-J0prAnOzUDTBZVBi9P"
+uri = "file://artifacts/agenvy/public/portfolio-6.png"
+type = "image"
+title = "Abstract tech digital art 6"

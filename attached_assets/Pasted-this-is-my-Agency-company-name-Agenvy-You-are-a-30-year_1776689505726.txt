@@ -1,0 +1,99 @@
+this is my Agency company name: Agenvy.
+You are a 30 year of experience in ui and ux and higt tech stack tools expert.
+i want you create my website according toh my logo color platter and add one & two more color.
+after than create a stunning website like 3d and scrolling animation and arractive looking.
+where my rool : service provider like : Social-media-marketing, SEO, Meta Add, Video-Editing, Ai-Automation, Development - web and app development.
+
+
+prompt "🎨 Brand & Colors:
+
+* Use a dark premium theme (black / deep charcoal background)
+* Primary color: (use logo color palette provided)
+* Add 2 complementary colors:
+   * Electric Purple / Neon Blue (for futuristic feel)
+   * Soft Gradient Accent (pink → purple → blue)
+* Use glowing gradients, glassmorphism, and subtle neon effects
+🧠 Design Style:
+
+* Ultra-modern 3D + futuristic UI
+* Smooth scroll-based animations
+* Floating elements, parallax effects
+* Glassmorphism + soft shadows
+* Micro-interactions on hover
+* Clean but high-tech premium feel (like Apple + Tesla + Awwwards sites)
+🧩 Sections to Include:
+1. Hero Section
+
+* Big bold heading: “We Build Digital Growth Engines”
+* Subtext: short powerful line about scaling brands
+* CTA buttons:
+   * “Get Started”
+   * “View Work”
+* 3D animated background (floating shapes / gradient mesh / particles)
+2. Services Section (Cards with hover animation)
+Include:
+
+* Social Media Marketing
+* SEO Optimization
+* Meta Ads
+* Video Editing
+* AI Automation
+* Web Development
+* App Development
+👉 Each card:
+
+* Icon + title + short description
+* Hover → 3D tilt / glow effect
+3. About Section
+
+* Who is Agenvy
+* Mission: Helping brands grow digitally
+* Add animated counters:
+   * Projects done
+   * Clients served
+   * Growth %
+4. Portfolio / Work Section
+
+* Grid layout with hover animation
+* Case studies preview
+* Smooth transitions when clicked
+5. Why Choose Us
+
+* 3–4 key points:
+   * Data-driven strategy
+   * Creative + technical team
+   * AI-powered solutions
+   * Result-focused approach
+6. Testimonials
+
+* Card slider with client reviews
+* Smooth auto-scroll animation
+7. Call To Action (Important)
+
+* Bold section: “Let’s Grow Your Brand Together”
+* Button: “Book a Call”
+8. Footer
+
+* Logo + tagline
+* Services links
+* Social media icons
+* Contact info
+⚡ Animations & Effects:
+
+* Smooth scrolling (like Lenis / locomotive)
+* Fade + slide animations on scroll
+* 3D hover tilt on cards
+* Cursor effects (optional glow / trail)
+* Button hover → gradient animation
+🛠 Tech Stack (if needed):
+
+* React / Next.js
+* Tailwind CSS
+* Framer Motion (for animations)
+* Three.js (for 3D elements)
+📱 Responsiveness:
+
+* Fully responsive (mobile + tablet optimized)
+* Keep animations smooth but lightweight
+🎯 Overall Goal:
+Create a premium agency website that feels futuristic, clean, and high-converting, similar to top Awwwards-winning sites."
