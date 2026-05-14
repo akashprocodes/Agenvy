@@ -1,5 +1,22 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Bot, Code2, Megaphone, Sparkles, Target, Video } from "lucide-react";
+import { ArrowUpRight, Bot, Code2, Megaphone, Sparkles, Video } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "../hooks/use-toast";
+import { Loader2 } from "lucide-react";
+
+interface FormData {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  company?: string;
+  message?: string;
+}
 
 const projectTypes = [
   { icon: Megaphone, title: "Growth Campaigns", desc: "Paid ads, social growth, SEO, and content systems." },
@@ -15,6 +32,110 @@ const processSteps = [
 ];
 
 export default function LetsTalk() {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format.";
+    }
+
+    if (!formData.company.trim()) {
+      newErrors.company = "Company is required.";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required.";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+    if (!validateForm()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fix the errors in the form.",
+      });
+      return;
+    }
+    try {
+      setIsSubmitting(true);
+      
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          subject: `New Project Brief from ${formData.name}`,
+          from_name: "Agenvy Contact Form",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Success",
+          description: "Your message has been sent successfully!",
+        });
+        setFormData({ name: "", email: "", company: "", message: "" });
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050507] pt-32 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_8%,rgba(249,115,22,0.12),transparent_30%),radial-gradient(circle_at_84%_30%,rgba(168,85,247,0.12),transparent_28%),linear-gradient(180deg,#08080c_0%,#050507_62%,#0a0a0f_100%)]" />
@@ -90,17 +211,71 @@ export default function LetsTalk() {
               })}
             </div>
 
-            <form className="mt-6 grid gap-4">
+            <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
               <div className="grid gap-4 sm:grid-cols-2">
-                <input className="h-12 rounded-2xl border border-white/[0.08] bg-black/25 px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40" placeholder="Your name" />
-                <input className="h-12 rounded-2xl border border-white/[0.08] bg-black/25 px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40" placeholder="Email address" />
+                <div>
+                  <input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={`h-12 rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
+                      errors.name ? "border-red-500" : "border-white/[0.08] bg-black/25"
+                    }`}
+                    placeholder="Your name"
+                  />
+                  {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
+                </div>
+                <div>
+                  <input
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={`h-12 rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
+                      errors.email ? "border-red-500" : "border-white/[0.08] bg-black/25"
+                    }`}
+                    placeholder="Email address"
+                  />
+                  {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+                </div>
               </div>
-              <input className="h-12 rounded-2xl border border-white/[0.08] bg-black/25 px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40" placeholder="Company or brand" />
-              <textarea className="min-h-36 resize-none rounded-2xl border border-white/[0.08] bg-black/25 px-4 py-4 text-sm leading-relaxed text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40" placeholder="What do you want Agenvy to help you build or scale?" />
-              <button type="button" className="group inline-flex w-full items-center justify-center gap-4 rounded-full bg-white py-2 pl-6 pr-2 text-sm font-semibold text-black shadow-2xl shadow-black/20 transition-all duration-300 hover:bg-orange-500 sm:w-auto sm:min-w-[236px] sm:justify-self-start">
-                <span className="whitespace-nowrap">Send Project Brief</span>
+              <div>
+                <input
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className={`h-12 rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
+                    errors.company ? "border-red-500" : "border-white/[0.08] bg-black/25"
+                  }`}
+                  placeholder="Company or brand"
+                />
+                {errors.company && <p className="mt-1 text-xs text-red-500">{errors.company}</p>}
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={`min-h-36 resize-none rounded-2xl border px-4 py-4 text-sm leading-relaxed text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
+                    errors.message ? "border-red-500" : "border-white/[0.08] bg-black/25"
+                  }`}
+                  placeholder="What do you want Agenvy to help you build or scale?"
+                />
+                {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
+              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="group inline-flex w-full items-center justify-center gap-4 rounded-full bg-white py-2 pl-6 pr-2 text-sm font-semibold text-black shadow-2xl shadow-black/20 transition-all duration-300 hover:bg-orange-500 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:min-w-[236px] sm:justify-self-start"
+              >
+                <span className="whitespace-nowrap">
+                  {isSubmitting ? "Sending..." : "Send Project Brief"}
+                </span>
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-transform duration-300 group-hover:rotate-45">
-                  <ArrowUpRight className="h-4 w-4" />
+                  {isSubmitting ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <ArrowUpRight className="h-4 w-4" />
+                  )}
                 </span>
               </button>
             </form>
