@@ -50,30 +50,25 @@ export default function AppDevelopment() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white overflow-x-hidden">
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute -top-1/4 right-0 w-2/3 h-2/3 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #10b981 0%, transparent 70%)", filter: "blur(100px)" }} />
-        <div className="absolute -bottom-1/4 left-0 w-1/2 h-1/2 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)", filter: "blur(80px)" }} />
-        <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(rgba(16,185,129,0.08) 1px, transparent 1px)", backgroundSize: "36px 36px" }} />
+        <div className="absolute top-0 right-0 w-2/3 h-2/3 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #f97316 0%, transparent 70%)", filter: "blur(100px)" }} />
+        <div className="absolute -bottom-1/4 left-0 w-1/2 h-1/2 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #8b5cf6 0%, transparent 70%)", filter: "blur(80px)" }} />
+        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
       </div>
 
       <div className="relative z-10">
         <div className="pt-28 pb-24 px-6">
           <div className="container mx-auto max-w-5xl">
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-              <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm mb-10 group">
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
-              </Link>
-            </motion.div>
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}>
-              <span className="inline-block px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-6">App Development</span>
+              <span className="inline-block px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-widest uppercase mb-6">App Development</span>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05] mb-6">
                 Apps Users <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">Actually Love</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-rose-400 to-pink-500">Actually Love</span>
               </h1>
               <p className="text-xl text-gray-400 max-w-2xl leading-relaxed mb-10">
                 We build high-performance mobile apps for iOS and Android that users rave about — combining stunning design, rock-solid engineering, and thoughtful UX that drives retention.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="mailto:hello@agenvy.com" className="px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:scale-105 transition-transform shadow-lg shadow-emerald-900/40">Start Your App</a>
+                <a href="mailto:hello@agenvy.com" className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 text-white font-semibold hover:scale-105 transition-transform shadow-lg shadow-orange-900/40">Start Your App</a>
                 <a href="#what-we-do" className="px-8 py-4 rounded-full border border-white/10 text-gray-300 hover:text-white hover:border-white/25 transition-all font-semibold">See What's Included</a>
               </div>
             </motion.div>
@@ -96,9 +91,9 @@ export default function AppDevelopment() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {offerings.map(({ icon: Icon, label, desc }, i) => (
                 <motion.div key={label} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                  className="p-6 rounded-2xl border border-white/8 bg-white/[0.025] hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all duration-300 group">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:bg-emerald-500/20 transition-colors">
-                    <Icon className="w-5 h-5 text-emerald-400" />
+                  className="p-6 rounded-2xl border border-white/8 bg-white/[0.025] hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300 group">
+                  <div className="w-11 h-11 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors">
+                    <Icon className="w-5 h-5 text-orange-400" />
                   </div>
                   <h3 className="text-white font-semibold mb-2">{label}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
@@ -108,20 +103,21 @@ export default function AppDevelopment() {
           </div>
         </div>
 
-        <div className="py-24 px-6 border-t border-white/5">
+        <RecentProjects service="app-development" accent="#f97316" />
+
+        
+<div className="py-24 px-6 border-t border-white/5">
           <div className="container mx-auto max-w-3xl">
             <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold tracking-tighter mb-12">Frequently Asked Questions</motion.h2>
             <Accordion items={faqs} />
           </div>
         </div>
 
-        <RecentProjects service="app-development" accent="#10b981" />
-
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-5">Ready to <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">Launch?</span></h2>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-5">Ready to <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-rose-400">Launch?</span></h2>
             <p className="text-gray-400 mb-8">Let's turn your app idea into a product your users can't live without.</p>
-            <a href="mailto:hello@agenvy.com" className="inline-flex px-10 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:scale-105 transition-transform shadow-lg shadow-emerald-900/40">Book Discovery Call</a>
+            <a href="mailto:hello@agenvy.com" className="inline-flex px-10 py-4 rounded-full bg-gradient-to-r from-orange-500 to-rose-500 text-white font-semibold hover:scale-105 transition-transform shadow-lg shadow-orange-900/40">Book Discovery Call</a>
           </div>
         </div>
       </div>

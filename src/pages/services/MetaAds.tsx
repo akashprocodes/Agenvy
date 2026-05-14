@@ -58,11 +58,6 @@ export default function MetaAds() {
       <div className="relative z-10">
         <div className="pt-28 pb-24 px-6">
           <div className="container mx-auto max-w-5xl">
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-              <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm mb-10 group">
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
-              </Link>
-            </motion.div>
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}>
               <span className="inline-block px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-xs font-semibold tracking-widest uppercase mb-6">Meta Advertising</span>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05] mb-6">
@@ -108,14 +103,15 @@ export default function MetaAds() {
           </div>
         </div>
 
-        <div className="py-24 px-6 border-t border-white/5">
+        <RecentProjects service="meta-ads" accent="#f97316" />
+
+        
+<div className="py-24 px-6 border-t border-white/5">
           <div className="container mx-auto max-w-3xl">
             <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold tracking-tighter mb-12">Frequently Asked Questions</motion.h2>
             <Accordion items={faqs} />
           </div>
         </div>
-
-        <RecentProjects service="meta-ads" accent="#f97316" />
 
         <div className="py-24 px-6 border-t border-white/5 text-center">
           <div className="container mx-auto max-w-2xl">

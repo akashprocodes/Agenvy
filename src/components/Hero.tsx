@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { Link } from "wouter";
 import { ArrowRight, Layers3, Sparkles, Target, Zap } from "lucide-react";
 
 const words = ["Growth", "Revenue", "Impact", "Results", "Success"];
@@ -374,7 +375,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
             >
-              <a
+              <Link
                 href="/lets-talk"
                 className="group inline-flex items-center gap-3 rounded-full bg-white px-2 py-2 pl-6 text-sm font-semibold text-black shadow-2xl shadow-black/20 transition-all duration-300 hover:bg-orange-500"
               >
@@ -382,7 +383,7 @@ export function Hero() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-transform duration-300 group-hover:rotate-45">
                   <ArrowRight className="h-4 w-4" />
                 </span>
-              </a>
+              </Link>
               <a
                 href="#work"
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.025] px-6 py-4 text-sm font-medium text-white/70 backdrop-blur-md transition-all duration-300 hover:border-orange-500/40 hover:bg-orange-500/10 hover:text-white"
