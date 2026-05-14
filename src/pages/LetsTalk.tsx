@@ -218,7 +218,7 @@ export default function LetsTalk() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`h-12 rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
+                    className={`h-12 w-full rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
                       errors.name ? "border-red-500" : "border-white/[0.08] bg-black/25"
                     }`}
                     placeholder="Your name"
@@ -230,7 +230,7 @@ export default function LetsTalk() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`h-12 rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
+                    className={`h-12 w-full rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
                       errors.email ? "border-red-500" : "border-white/[0.08] bg-black/25"
                     }`}
                     placeholder="Email address"
@@ -243,7 +243,7 @@ export default function LetsTalk() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className={`h-12 rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
+                  className={`h-12 w-full rounded-2xl border px-4 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
                     errors.company ? "border-red-500" : "border-white/[0.08] bg-black/25"
                   }`}
                   placeholder="Company or brand"
@@ -255,7 +255,7 @@ export default function LetsTalk() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className={`min-h-36 resize-none rounded-2xl border px-4 py-4 text-sm leading-relaxed text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
+                  className={`min-h-36 w-full resize-none rounded-2xl border px-4 py-4 text-sm leading-relaxed text-white outline-none transition-colors placeholder:text-white/30 focus:border-orange-400/40 ${
                     errors.message ? "border-red-500" : "border-white/[0.08] bg-black/25"
                   }`}
                   placeholder="What do you want Agenvy to help you build or scale?"
